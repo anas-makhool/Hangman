@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+}
+
+:root {
+    --mainBorderPx: 4px;
+    --mainBorderColor: #222;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+
+    .row {
+        display: flex;
+    }
+
+    hr {
+        border: 1px solid #eee;
+    }
+
+    .game-info {
+        display: flex;
+
+        .game-name {
+            flex: 1;
+        }
+
+        .category {
+            flex: 1;
+            text-align: right;
+
+            span {
+                text-transform: capitalize;
+                color: #e91e63;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .hangman-draw {
+        flex: 1;
+        background-color: #f7f7f7;
+        padding: 20px;
+        height: 324px;
+
+        .the-draw {
+            width: 60px;
+            height: 280px;
+            border-bottom: var(--mainBorderPx) solid var(--mainBorderColor);
+            position: relative;
+            margin: auto;
+            opacity: 1;
+        }
+
+        .the-stand {
+            &::before {
+                content: '';
+                position: absolute;
+                width: var(--mainBorderPx);
+                background-color: var(--mainBorderColor);
+                height: 100%;
+                left: 50%;
+                margin-left: -2px;
+            }
+        }
+
+        .the-hang {
+            &::before {
+                content: '';
+                position: absolute;
+                height: var(--mainBorderPx);
+                background-color: var(--mainBorderColor);
+                width: 100px;
+                left: 30px;
+                top: 15px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: var(--mainBorderPx);
+                height: 30px;
+                background-color: var(--mainBorderColor);
+                left: 130px;
+                top: 15px;
+            }
+        }
+
+        .the-rope {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            left: 98px;
+            top: 43px;
+            transform: rotate(33deg);
+            border: var(--mainBorderPx) dashed var(--mainBorderColor);
+        }
+    }
+
+    .the-man {
+        .head {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: var(--mainBorderPx) var(--mainBorderColor) solid;
+            position: absolute;
+            left: 108px;
+            top: 53px;
+            position: relative;
+
+
+
+            .face {
+                position: absolute;
+                display: block;
+                width: 27px;
+                height: 20px;
+                background-color: transparent;
+                top: 95%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                border: 4px solid transparent;
+                border-top-color: #222;
+
+                &::before,
+                &::after {
+                    content: "x";
+                    position: absolute;
+                    top: -25px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    z-index: 199;
+                    color: black;
+                }
+
+                &::after {
+                    left: 50%;
+                }
+            }
+        }
+    }
+
+    .body {
+        position: absolute;
+        background-color: var(--mainBorderColor);
+        width: var(--mainBorderPx);
+        height: 84px;
+        top: 100px;
+        left: 130px;
+    }
+
+    .hands {
+
+        &::before,
+        &::after {
+            content: "";
+            width: 50px;
+            position: absolute;
+            height: var(--mainBorderPx);
+            background-color: var(--mainBorderColor);
+            left: 85px;
+            top: 120px;
+            transform: rotate(30deg);
+        }
+
+        &::after {
+            transform: rotate(-30deg);
+            left: 130px;
+        }
+
+    }
+
+    .legs {
+
+        &::before,
+        &::after {
+            content: "";
+            width: 50px;
+            position: absolute;
+            height: var(--mainBorderPx);
+            background-color: var(--mainBorderColor);
+            left: 85px;
+            bottom: 80px;
+            transform: rotate(-30deg);
+        }
+
+        &::after {
+            transform: rotate(30deg);
+            left: 130px;
+        }
+    }
+
+    .letters {
+        flex: 1;
+        padding: 15px 20px;
+        text-align: center;
+
+        .letter-box {
+            width: 55px;
+            height: 55px;
+            display: inline-block;
+            background-color: #009688;
+            color: white;
+            font-size: 24px;
+            margin-right: 10px;
+            line-height: 55px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    }
+}
