@@ -79,9 +79,10 @@ let letterAndSpace = Array.from(randomValueValue);
 
 console.log(randomValueValue.toLowerCase());
 console.log(randomPropName);
+let theChosenWord = Array.from(randomValueValue.toLowerCase());
 
 // create spans depend on word
-letterAndSpace.forEach((ele, ind) => {
+theChosenWord.forEach((ele, ind) => {
   let emptySpan = document.createElement("span");
 
   ele === " " ? (emptySpan.className = "has-space") : (emptySpan.id = ind);
@@ -90,72 +91,18 @@ letterAndSpace.forEach((ele, ind) => {
   lettersGuessContainer.appendChild(emptySpan);
 });
 
-let lettersContainerArray = Array.from(lettersContainer.children);
-let lettersGuessContainerArray = Array.from(lettersGuessContainer.children);
-let index = 0;
+// Handle clicking letters
+document.addEventListener("click", (e) => {
+  if (e.target.className === "letter-box") {
+    e.target.classList.add("clicked");
 
-const logic = (letter) => {
-  if (
-    lettersGuessContainerArray[index].classList.contains("has-space") &&
-    index < lettersGuessContainerArray.length - 1
-  ) {
-    index++;
-  }
+    let theClickedLetter = e.target.innerHTML.toLowerCase();
 
-  lettersGuessContainerArray[index].innerText = letter;
-
-  index++;
-
-  if (index === randomValueValue.length) {
-    lettersContainer.style.pointerEvents = "none";
-    let compare = lettersGuessContainerArray
-      .map((ele) => ele.innerText)
-      .join("")
-      .toLowerCase();
-
-    let wow = randomValueValue.toLowerCase().replaceAll(" ", "");
-
-    // comparison
-    console.log(wow);
-    console.log(compare);
-    document.querySelector(".wow").innerHTML =
-      wow === compare ? "You Win" : "You Lose";
-  }
-};
-
-// Add event listeners for mouse clicks
-for (let i = 0; i < lettersContainerArray.length; i++) {
-  let ele = lettersContainerArray[i];
-  ele.addEventListener("click", () => logic(ele.innerHTML));
-}
-
-// Add event listener for keyboard input
-document.addEventListener("keydown", (event) => {
-  console.log(event.key);
-  if (event.ctrlKey) {
-    if (event.key === "r" || event.key === "R") {
-      return;
-    }
-    event.preventDefault();
-    return;
-  }
-
-  if (/[\u0600-\u06FF]/.test(event.key)) {
-    alert("wow");
-  } else if (
-    /^[a-zA-Z]$/.test(event.key) &&
-    index !== randomValueValue.length
-  ) {
-    let letter = event.key.toLowerCase();
-    logic(letter);
-  } else if (
-    event.key === "Backspace" &&
-    index >= 1 &&
-    index !== randomValueValue.length
-  ) {
-    index--;
-    lettersGuessContainerArray[index].innerText = "";
-  } else {
-    event.preventDefault();
+    letterAndSpace.forEach((ele, ind) => {
+      if (theClickedLetter === ele) {
+        console.log(`found at index number ${ind}`);
+        [...lettersGuessContainer.children][ind].innerHTML = ele
+      }
+    });
   }
 });

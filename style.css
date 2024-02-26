@@ -220,6 +220,12 @@ body {
             cursor: pointer;
             margin-bottom: 10px;
         }
+        
+        .letter-box.clicked{
+            background-color: var(--mainBorderColor);
+            opacity: .2;
+            pointer-events: none;
+        }
 
     }
 
