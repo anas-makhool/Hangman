@@ -1,0 +1,30 @@
+{
+  "programming": [
+    "JavaScript",
+    "Python",
+    "Java",
+    "SQL",
+    "Ruby",
+    "Swift",
+    "Go",
+    "Rust"
+  ],
+  "movies": [
+    "prestige",
+    "inception",
+    "parasite",
+    "interstellar",
+    "whiplash",
+    "memento",
+    "coco",
+    "up"
+  ],
+  "people": [
+    "Nelson Mandela",
+    "Mother Teresa",
+    "Mahatma Gandhi",
+    "Martin Luther King Jr",
+    "Albert Einstein"
+  ],
+  "countries": ["Syria", "Palestine", "Yemen", "Egypt", "Bahrain", "Qatar"]
+}

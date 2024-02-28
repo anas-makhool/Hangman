@@ -1,9 +1,9 @@
 * {
     box-sizing: border-box;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -53,6 +53,7 @@ body {
         height: 324px;
 
         .the-draw {
+            display: none;
             width: 60px;
             height: 280px;
             border-bottom: var(--mainBorderPx) solid var(--mainBorderColor);
@@ -62,6 +63,8 @@ body {
         }
 
         .the-stand {
+            display: none;
+
             &::before {
                 content: '';
                 position: absolute;
@@ -74,6 +77,8 @@ body {
         }
 
         .the-hang {
+            display: none;
+
             &::before {
                 content: '';
                 position: absolute;
@@ -96,6 +101,7 @@ body {
         }
 
         .the-rope {
+            display: none;
             border-radius: 50%;
             width: 70px;
             height: 70px;
@@ -108,6 +114,8 @@ body {
     }
 
     .the-man {
+        display: none;
+
         .head {
             width: 50px;
             height: 50px;
@@ -121,6 +129,7 @@ body {
 
 
             .face {
+
                 position: absolute;
                 display: block;
                 width: 27px;
@@ -152,6 +161,7 @@ body {
     }
 
     .body {
+        display: none;
         position: absolute;
         background-color: var(--mainBorderColor);
         width: var(--mainBorderPx);
@@ -161,9 +171,11 @@ body {
     }
 
     .hands {
+        display: none;
 
         &::before,
         &::after {
+
             content: "";
             width: 50px;
             position: absolute;
@@ -182,6 +194,7 @@ body {
     }
 
     .legs {
+        display: none;
 
         &::before,
         &::after {
@@ -220,8 +233,8 @@ body {
             cursor: pointer;
             margin-bottom: 10px;
         }
-        
-        .letter-box.clicked{
+
+        .letter-box.clicked {
             background-color: var(--mainBorderColor);
             opacity: .2;
             pointer-events: none;
@@ -250,12 +263,13 @@ body {
             border-bottom: 3px solid var(--mainBorderColor);
             transition: 0.3s;
         }
-        
-        .has-space{
+
+        .has-space {
             background-color: none;
             border-bottom: none;
             position: relative;
-            &::before{
+
+            &::before {
                 content: '';
                 width: 20px;
                 height: 4px;
@@ -263,8 +277,102 @@ body {
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
             }
         }
+    }
+}
+
+.hangman-draw.wrong-1 .the-draw {
+    display: block;
+}
+
+.hangman-draw.wrong-2 .the-stand {
+    display: block;
+}
+
+.hangman-draw.wrong-3 .the-hang {
+    display: block;
+}
+
+.hangman-draw.wrong-4 .the-rope {
+    display: block;
+}
+
+.hangman-draw.wrong-5 .the-man {
+    display: block;
+}
+
+.hangman-draw.wrong-6 .body {
+    display: block;
+}
+
+.hangman-draw.wrong-7 .the-man .hands {
+    display: block;
+}
+
+.hangman-draw.wrong-8 .legs {
+    display: block;
+}
+
+.hangman-draw .face {
+    display: none !important;
+}
+
+.hangman-draw.wrong-8 .face {
+    display: block !important;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+    -webkit-animation: fadeInOut 3s ease forwards;
+    animation: fadeInOut 3s ease forwards;
+    text-align: center;
+}
+
+@-webkit-keyframes fadeInOut {
+    0% {
+        opacity: 0;
+
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
