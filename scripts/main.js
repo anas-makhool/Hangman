@@ -89,4 +89,3 @@ playAgain.addEventListener("click", () => {
   [...keyboard.children].forEach((btn) => (btn.disabled = false));
 });
 
-// Complete the logic & handle reset game btn
