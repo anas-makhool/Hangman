@@ -8,12 +8,12 @@
   </head>
   <body>
     <div class="game-modal">
-        <div class="content">
-            <img src="images/lost.gif" alt="git">
-            <h4>Game Over!</h4>
-            <p>The correct word was: <b>rainbow</b></p>
-            <button class="play-again">Play Again</button>
-        </div>
+      <div class="content">
+        <img src="images/lost.gif" alt="git" />
+        <h4>Game Over!</h4>
+        <p>The correct word was: <b>rainbow</b></p>
+        <button class="play-again">Play Again</button>
+      </div>
     </div>
 
     <div class="container">
@@ -22,16 +22,8 @@
         <h1>Hangman Game</h1>
       </div>
       <div class="game-box">
-        <ul class="word-display">
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter guessed">a</li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-          <li class="letter"></li>
-        </ul>
-        <h4 class="hit-text">
+        <ul class="word-display"></ul>
+        <h4 class="hint-text">
           Hint :
           <b
             >Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
@@ -42,11 +34,11 @@
           Incorrect Guesses :
           <b>0 / 6</b>
         </h4>
-        <div class="keyboard">
-        </div>
+        <div class="keyboard"></div>
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="scripts/word-list.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
