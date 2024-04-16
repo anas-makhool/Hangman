@@ -44,3 +44,5 @@ This project was created by [anas-makhool](https://github.com/anas-makhool).
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## You can browse it from - [here](https://hangman-d58792.netlify.app/)
